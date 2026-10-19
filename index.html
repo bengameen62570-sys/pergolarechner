@@ -125,10 +125,10 @@
 
         <div class="gate" id="gate">
           <div class="gate-title">Ihr Richtpreis ist berechnet</div>
-          <p class="gate-text">Wohin dürfen wir ihn senden? Sie sehen den Preis sofort hier — und bekommen ihn zusätzlich als Nachricht.</p>
+          <p class="gate-text">Geben Sie Ihre Telefonnummer ein — der Preis erscheint sofort hier, und unser Berater kann Sie zur Abstimmung der Details kontaktieren.</p>
           <div class="gate-row">
             <input type="tel" id="gate-tel" inputmode="tel" autocomplete="tel" placeholder="Telefon / WhatsApp">
-            <input type="email" id="gate-mail" inputmode="email" autocomplete="email" placeholder="oder E-Mail">
+            <input type="email" id="gate-mail" inputmode="email" autocomplete="email" placeholder="E-Mail (optional)">
           </div>
           <button type="button" class="btn btn-brass gate-btn" id="gate-btn">Richtpreis anzeigen</button>
           <p class="gate-hint" id="gate-hint">Lamellendach ab 7.300 € mit Montage. Mit dem Absenden stimmen Sie der <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> zu.</p>
@@ -216,6 +216,11 @@
     </form>
   </div>
 </section>
+
+<div class="pdock" id="pdock">
+  <div class="pd-sum"><span>Richtpreis</span><b id="pdock-price">—</b></div>
+  <a class="btn btn-brass pd-btn" id="pdock-btn" href="#gate">Richtpreis anzeigen</a>
+</div>
 
 <footer>
   <div class="wrap">

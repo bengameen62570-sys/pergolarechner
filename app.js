@@ -190,7 +190,7 @@ document.querySelectorAll('svg[data-fig]').forEach(el => {
     $('v-w').textContent = m(st.w)+' m'; $('v-p').textContent = m(st.p)+' m'; $('v-a').textContent = st.a+'°';
     $('g-back').closest('label').classList.toggle('off', st.mount==='wall');
     const res = calc(st); const ptxt = res ? fmt(res.price) : 'auf Anfrage';
-    $('price').textContent = ptxt; $('stage-price').textContent = ptxt;
+    $('price').textContent = ptxt; $('stage-price').textContent = ptxt; if($('pdock-price')) $('pdock-price').textContent = ptxt;
     drawStage(st, res);
     const NL = Math.max(4, Math.round(st.p/230));
     const gl = st.sides.length ? ' · Glas ' + st.sides.map(k => SIDE[k]).join(', ') : '';
@@ -201,15 +201,15 @@ document.querySelectorAll('svg[data-fig]').forEach(el => {
   // Richtpreis-Gate: цена после телефона/e-mail, заявка уходит на почту
   (function(){
     let un=false; try{ un=localStorage.getItem('pr_unlock')==='1'; }catch(e){}
-    const apply=()=>document.body.classList.toggle('locked',!un);
+    const apply=()=>{ document.body.classList.toggle('locked',!un); const pb=$('pdock-btn'); if(pb){ pb.textContent = un ? 'Angebot anfragen' : 'Richtpreis anzeigen'; pb.href = un ? '#kontakt' : '#gate'; } };
     apply();
     const btn=$('gate-btn'); if(!btn) return;
     const unlock=()=>{ un=true; try{ localStorage.setItem('pr_unlock','1'); }catch(e){} apply();
       try{ if(window.gtag) gtag('event','generate_lead',{method:'richtpreis'}); }catch(e){} };
     btn.addEventListener('click',()=>{
       const tel=$('gate-tel').value.trim(), mail=$('gate-mail').value.trim(), hint=$('gate-hint');
-      if(tel.replace(/\D/g,'').length<6 && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)){
-        hint.textContent='Bitte Telefonnummer oder E-Mail-Adresse eingeben.'; hint.classList.add('err'); return; }
+      if(tel.replace(/\D/g,'').length<6){
+        hint.textContent='Bitte geben Sie Ihre Telefonnummer ein.'; hint.classList.add('err'); return; }
       btn.disabled=true; btn.textContent='Einen Moment …';
       let done=false; const finish=()=>{ if(done) return; done=true; unlock(); };
       try{
