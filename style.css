@@ -340,3 +340,18 @@ footer .fc a{display:block;margin-bottom:6px;overflow-wrap:anywhere}
   .stack td.rh b{font-weight:500}
   .cmp.stack{background:transparent;border-radius:0}
 }
+
+/* Richtpreis-Gate: цена видна после телефона/e-mail */
+body.locked #price,body.locked #stage-price{filter:blur(9px);user-select:none;pointer-events:none}
+.gate{display:none;background:var(--night-2);border:1.5px solid var(--brass);border-radius:16px;padding:18px 20px 14px;margin:0 0 14px}
+body.locked .gate{display:block}
+.gate-title{font-family:var(--serif);font-size:22px;color:var(--brass);margin-bottom:4px}
+.gate-text{margin:0 0 12px;font-size:14.5px;color:var(--sage)}
+.gate-row{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+.gate-row input{width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid var(--line-dark);border-radius:10px;font:inherit;font-size:16px;background:rgba(255,255,255,.06);color:#fff}
+.gate-row input::placeholder{color:rgba(255,255,255,.5)}
+.gate-row input:focus{outline:none;border-color:var(--brass)}
+.gate-btn{width:100%;margin:0;justify-content:center}
+.gate-hint{margin:10px 0 0;font-size:12.5px;color:var(--sage)}
+.gate-hint a{color:inherit}
+.gate-hint.err{color:#ff9a8a;font-weight:600}

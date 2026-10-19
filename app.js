@@ -198,6 +198,30 @@ document.querySelectorAll('svg[data-fig]').forEach(el => {
     const extras = st.opts.join(', ') || 'ohne Extras';
     $('f-config').value = `${NAME[st.model]}, ${st.mount==='wall'?'Wand':'freistehend'}, ${st.w}×${st.p} mm, ${extras}${st.sides.length?', Glas: '+st.sides.map(k=>SIDE[k]).join('/'):''}, ab ${ptxt}`;
   }
+  // Richtpreis-Gate: цена после телефона/e-mail, заявка уходит на почту
+  (function(){
+    let un=false; try{ un=localStorage.getItem('pr_unlock')==='1'; }catch(e){}
+    const apply=()=>document.body.classList.toggle('locked',!un);
+    apply();
+    const btn=$('gate-btn'); if(!btn) return;
+    const unlock=()=>{ un=true; try{ localStorage.setItem('pr_unlock','1'); }catch(e){} apply();
+      try{ if(window.gtag) gtag('event','generate_lead',{method:'richtpreis'}); }catch(e){} };
+    btn.addEventListener('click',()=>{
+      const tel=$('gate-tel').value.trim(), mail=$('gate-mail').value.trim(), hint=$('gate-hint');
+      if(tel.replace(/\D/g,'').length<6 && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)){
+        hint.textContent='Bitte Telefonnummer oder E-Mail-Adresse eingeben.'; hint.classList.add('err'); return; }
+      btn.disabled=true; btn.textContent='Einen Moment …';
+      let done=false; const finish=()=>{ if(done) return; done=true; unlock(); };
+      try{
+        fetch('https://formsubmit.co/ajax/bengameen62570@gmail.com',{method:'POST',
+          headers:{'Content-Type':'application/json','Accept':'application/json'},
+          body:JSON.stringify({_subject:'Richtpreis-Anfrage PergolaRechner (Rechner)',Telefon:tel||'—','E-Mail':mail||'—',
+            Konfiguration:$('f-config').value,Seite:location.href})
+        }).then(finish,finish);
+      }catch(e){ finish(); }
+      setTimeout(finish,4000);
+    });
+  })();
   document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => {
     document.querySelectorAll('.seg button').forEach(x => x.setAttribute('aria-pressed','false'));
     b.setAttribute('aria-pressed','true');
