@@ -197,6 +197,7 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.12)}
 .rv .st{color:var(--brass);letter-spacing:3px;font-size:20px;line-height:1}
 .rv .who{font-family:var(--serif);font-size:19px;font-weight:500;color:var(--ink)}
 .rv .when{color:var(--sage);font-size:14px}
+.rv article .txt{margin:10px 0 0;font-style:italic;font-size:14px}
 .rv-src{font-size:14px;color:var(--sage);margin-top:18px}
 @media(max-width:860px){.rv{grid-template-columns:1fr}.reviews{padding:48px 0}}
 

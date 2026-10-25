@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lamellendach-Modelle: Classic, Grand, Slide und Glasschiebewände</title>
-<meta name="description" content="Drei Lamellendächer im Detail – drehbare Lamellen bis 4,5 m, große Spannweiten bis 5 × 8 m, Lamellen zum Zusammenschieben – und rahmenlose Glasschiebewände. Maße, Schneelast, Farben, Preise mit Montage.">
+<meta name="description" content="Drei Lamellendächer im Detail – drehbare Lamellen bis 4,5 m, große Spannweiten bis 5 × 8 m, Lamellen zum Zusammenschieben – und rahmenlose Glasschiebewände. Maße, Schneelast, Farben, Richtpreise.">
 <meta name="theme-color" content="#17201c">
 <link rel="canonical" href="https://pergolarechner.at/modelle.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -30,7 +30,7 @@
   <div class="wrap">
     <div class="crumbs"><a href="index.html">Start</a> › Modelle</div>
     <h1>Drei Dächer, die sich bewegen</h1>
-    <p class="lead">Was die Modelle unterscheidet, was alle gemeinsam haben – und wie aus einer Pergola mit Glasschiebewänden ein Gartenzimmer wird. Alle Preise verstehen sich mit Lieferung und Montage in Österreich.</p>
+    <p class="lead">Was die Modelle unterscheidet, was alle gemeinsam haben – und wie aus einer Pergola mit Glasschiebewänden ein Gartenzimmer wird. Alle Preise sind unverbindliche Richtpreise inkl. MwSt. ab Werk – Lieferung und Montage besprechen wir individuell.</p>
   </div>
 </section>
 
@@ -54,7 +54,7 @@
         <tr><th>Wind</th><td>bis 80 km/h, mit verstärkter Befestigung bis 160 km/h</td></tr>
         <tr><th>Montage</th><td>an der Hauswand oder freistehend auf vier Stützen</td></tr>
       </table>
-      <div class="from"><b>ab 7.300 €</b><small>2,0 × 2,0 m an der Wand · 4 × 3 m etwa 11.200 €</small></div>
+      <div class="from"><b>ab 4.760 €</b><small>2,0 × 2,0 m an der Wand · 4 × 3 m etwa 8.300 € · Lieferung und Montage individuell</small></div>
     </div>
   </div>
 </section>
@@ -79,7 +79,7 @@
         <tr><th>Extras</th><td>Lamellen mit Dämmkern, Heizstrahler direkt im Rahmen</td></tr>
         <tr><th>Montage</th><td>an der Hauswand, freistehend oder als Modulreihe</td></tr>
       </table>
-      <div class="from"><b>ab 8.200 €</b><small>2,0 × 2,0 m an der Wand · 5 × 3 m etwa 14.700 €</small></div>
+      <div class="from"><b>ab 5.600 €</b><small>2,0 × 2,0 m an der Wand · 5 × 3 m etwa 11.300 € · Lieferung und Montage individuell</small></div>
     </div>
   </div>
 </section>
@@ -104,7 +104,7 @@
         <tr><th>Regen</th><td>Dichtheit geprüft nach EN 12056-3</td></tr>
         <tr><th>Gewicht</th><td>etwa 35 kg/m²</td></tr>
       </table>
-      <div class="from"><b>ab 15.600 €</b><small>2,5 × 2,5 m an der Wand · 4 × 3 m etwa 19.400 €</small></div>
+      <div class="from"><b>ab 12.790 €</b><small>2,5 × 2,5 m an der Wand · 4 × 3 m etwa 16.100 € · Lieferung und Montage individuell</small></div>
     </div>
   </div>
 </section>
@@ -128,7 +128,7 @@
         <li>Schloss, Drehtür und Eckverbindung als Extras</li>
         <li>kein Wintergarten: Windschutz ohne Wärmedämmung</li>
       </ul>
-      <div class="from"><b>ab 1.700 €</b><small>je Seite mit Montage · 4 m Front etwa 2.300 €</small></div>
+      <div class="from"><b>ab 1.280 €</b><small>je Seite ohne Montage · 4 m Front etwa 1.850 €</small></div>
     </div>
   </div>
 </section>
@@ -187,6 +187,21 @@
     <div class="fl"><div class="fb">Seiten</div><a href="modelle.html">Modelle</a><a href="index.html#rechner">Preis berechnen</a><a href="ratgeber.html">Ratgeber</a><a href="ueber-uns.html">Über uns</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
   </div>
 </footer>
+<div class="cookie hidden" id="cookie">
+  <p>Wir verwenden Microsoft Clarity zur Analyse der Website-Nutzung (inkl. Sitzungsaufzeichnung). Mehr dazu in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+  <div class="c-btns"><button class="c-no" type="button" id="c-no">Ablehnen</button><button class="c-ok" type="button" id="c-ok">Akzeptieren</button></div>
+</div>
+<script>
+(function(){
+  var KEY='pr_consent', box=document.getElementById('cookie');
+  function loadClarity(){ if(window.__cl) return; window.__cl=1; (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script','z0adxatrun'); }
+  var saved=null; try{ saved=localStorage.getItem(KEY); }catch(e){}
+  if(saved==='ok') loadClarity(); else if(saved!=='no') box.classList.remove('hidden');
+  function close(v){ try{ localStorage.setItem(KEY,v); }catch(e){} if(v==='ok') loadClarity(); box.classList.add('hidden'); }
+  document.getElementById('c-ok').addEventListener('click',function(){ close('ok'); });
+  document.getElementById('c-no').addEventListener('click',function(){ close('no'); });
+})();
+</script>
 <script src="app.js"></script>
 </body>
 </html>

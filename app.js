@@ -131,10 +131,10 @@ document.querySelectorAll('svg[data-fig]').forEach(el => {
 (function(){
   const $ = id => document.getElementById(id);
   if(!$('rechner')) return;
-  /* Preislogik: Katalog netto × Händlerrabatt × Aufschlag + Montage + Transport, dann MwSt. */
-  const DISC = 0.67, MARKUP = 1.30, VAT = 1.20, TRANSPORT = 490;
+  /* Preislogik: Katalog netto × Händlerrabatt × Aufschlag, dann MwSt. Lieferung und Montage: individuell. */
+  const DISC = 0.67, MARKUP = 1.25, VAT = 1.20;
   const OPT = { led: 1228, zip: 1100, sens: 325, heat: 1360 };          // Katalog netto; zip ≈ 1 Screen 2500×2600 inkl. Motor
-  const GLASS_H = 2600, GLASS_MONT = 300;                                // Glashöhe unter der Rinne; Montage je Wand netto
+  const GLASS_H = 2600;                                                  // Glashöhe unter der Rinne
   const LIM = { s400:{w:4500,p:7000}, s500:{w:5000,p:8000}, slide:{w:4000,p:7000} };
   const NAME = { s400:'Classic', s500:'Grand', slide:'Slide' };
   const SIDE = { front:'vorne', left:'links', right:'rechts', back:'hinten' };
@@ -163,11 +163,11 @@ document.querySelectorAll('svg[data-fig]').forEach(el => {
   });
   function calc(st){
     const base = lookup(st.model, st.mount, st.w, st.p); if(base == null) return null;
-    let net = base*DISC*MARKUP + montage(st.w, st.p) + TRANSPORT;
+    let net = base*DISC*MARKUP;
     st.opts.forEach(k => { net += OPT[k]*DISC*MARKUP; });
     const panels = {};
     for(const side of st.sides){ const len = (side==='front'||side==='back') ? st.w : st.p; const gw = glassWall(len); if(!gw) return null;
-      net += gw.v*DISC*MARKUP + GLASS_MONT; panels[side] = gw.n; }
+      net += gw.v*DISC*MARKUP; panels[side] = gw.n; }
     return { price: Math.ceil(net*VAT/10)*10, panels };
   }
   function stageBox(){

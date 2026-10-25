@@ -39,7 +39,7 @@
     <div>
       <h2>Wer hinter dem Lamellendach steht</h2>
       <p>Veniamin Kononenko e.U. ist ein Montagebetrieb für Fenster, Türen, Glasgeländer und Terrassendächer. Wir verkaufen keine Kataloge, sondern bauen das, was wir anbieten, selbst ein – und sehen deshalb jede Terrasse vor der Bestellung mit eigenen Augen.</p>
-      <p>Die Pergolen kommen von einem europäischen Hersteller mit eigener Aluminium-Fertigung, jede wird für Ihre Maße gebaut. Den Preis sehen Sie auf dieser Seite, bevor Sie uns schreiben: Er gilt inklusive Lieferung und Montage; was nach dem Aufmaß dazukommen kann – etwa ein Fundament oder die Stromzuleitung – steht im Angebot als eigene Position.</p>
+      <p>Die Pergolen kommen von einem europäischen Hersteller mit eigener Aluminium-Fertigung, jede wird für Ihre Maße gebaut. Den Preis sehen Sie auf dieser Seite, bevor Sie uns schreiben: Er gilt für die Pergola ab Werk; Lieferung und Montage sowie das, was nach dem Aufmaß dazukommen kann – etwa ein Fundament oder die Stromzuleitung – stehen im Angebot als eigene Positionen.</p>
       <p>Von der ersten Nachricht bis zur Übergabe der Fernbedienung haben Sie einen Ansprechpartner. Fragen nach der Montage – zur Einstellung, zur Reinigung, zu einem späteren Zip-Screen – beantwortet derselbe.</p>
     </div>
     <ul class="facts">
@@ -84,6 +84,21 @@
     <div class="fl"><div class="fb">Seiten</div><a href="modelle.html">Modelle</a><a href="index.html#rechner">Preis berechnen</a><a href="ratgeber.html">Ratgeber</a><a href="ueber-uns.html">Über uns</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
   </div>
 </footer>
+<div class="cookie hidden" id="cookie">
+  <p>Wir verwenden Microsoft Clarity zur Analyse der Website-Nutzung (inkl. Sitzungsaufzeichnung). Mehr dazu in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+  <div class="c-btns"><button class="c-no" type="button" id="c-no">Ablehnen</button><button class="c-ok" type="button" id="c-ok">Akzeptieren</button></div>
+</div>
+<script>
+(function(){
+  var KEY='pr_consent', box=document.getElementById('cookie');
+  function loadClarity(){ if(window.__cl) return; window.__cl=1; (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script','z0adxatrun'); }
+  var saved=null; try{ saved=localStorage.getItem(KEY); }catch(e){}
+  if(saved==='ok') loadClarity(); else if(saved!=='no') box.classList.remove('hidden');
+  function close(v){ try{ localStorage.setItem(KEY,v); }catch(e){} if(v==='ok') loadClarity(); box.classList.add('hidden'); }
+  document.getElementById('c-ok').addEventListener('click',function(){ close('ok'); });
+  document.getElementById('c-no').addEventListener('click',function(){ close('no'); });
+})();
+</script>
 <script src="app.js"></script>
 </body>
 </html>
