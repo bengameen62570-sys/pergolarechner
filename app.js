@@ -132,7 +132,7 @@ document.querySelectorAll('svg[data-fig]').forEach(el => {
   const $ = id => document.getElementById(id);
   if(!$('rechner')) return;
   /* Preislogik: Katalog netto × Händlerrabatt × Aufschlag, dann MwSt. Lieferung und Montage: individuell. */
-  const DISC = 0.67, MARKUP = 1.25, VAT = 1.20;
+  const DISC = 0.67, MARKUP = 1.30, VAT = 1.20;
   const OPT = { led: 1228, zip: 1100, sens: 325, heat: 1360 };          // Katalog netto; zip ≈ 1 Screen 2500×2600 inkl. Motor
   const GLASS_H = 2600;                                                  // Glashöhe unter der Rinne
   const LIM = { s400:{w:4500,p:7000}, s500:{w:5000,p:8000}, slide:{w:4000,p:7000} };
